@@ -80,8 +80,6 @@
                 <ul>
                     <li class="nav-item"><a class="nav-link" href="{{ route('students.index') }}">Student List</a</li>
                     
-                  
-                    <li><a href="#">Faculty/Office</a></li>
                     <li><a href="/calendar">Calendar</a></li>
                     <li><a href="#">Settings</a></li>
                     @if(auth()->check())
