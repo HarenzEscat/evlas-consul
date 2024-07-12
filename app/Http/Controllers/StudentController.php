@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Student;
-use App\Models\Section;
-use App\Models\Course;
-use App\Models\Teacher;
+use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
@@ -16,37 +13,54 @@ class StudentController extends Controller
         return view('students.index', compact('students'));
     }
 
-    
-
     public function create()
     {
-        $sections = Section::all();
-        $courses = Course::all();
-        return view('students.create', compact('sections', 'courses'));
+        return view('students.create');
     }
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'section_id' => 'required|exists:sections,id',
-            'course_id' => 'nullable|exists:courses,id',
+        $request->validate([
+            'name' => 'required',
+            'section' => 'required',
+            'course' => 'required',
         ]);
 
-        Student::create($validatedData);
+        Student::create($request->all());
 
         return redirect()->route('students.index')->with('success', 'Student created successfully.');
     }
-        public function show($id)
+
+    public function show(Student $student)
     {
-        // Fetch a single student by ID
-        $student = Student::findOrFail($id);
-
-        // Fetch a collection of teachers
-        $teachers = Teacher::all();
-
-        return view('your_view_name', compact('students', 'teachers'));
+        return view('students.show', compact('student'));
     }
 
+    public function edit(Student $student)
+    {
+        return view('students.edit', compact('student'));
+    }
+
+    public function update(Request $request, Student $student)
+    {
+        $request->validate([
+            'name' => 'required',
+            'section' => 'required',
+            'course' => 'required',
+        ]);
+
+        $student->update($request->all());
+
+        return redirect()->route('students.index')->with('success', 'Student updated successfully.');
+    }
+
+    public function destroy($id)
+    {
+        $student = Student::findOrFail($id);
+        $student->delete();
     
+        return redirect()->route('students.index')->with('success', 'Student deleted successfully');
+    }
+    
+
 }
