@@ -79,3 +79,17 @@ Route::get('/calendar', [EventController::class, 'index']);
 Route::post('/events', [EventController::class, 'store']);
 
 Route::get('/calendar/event/{id}', 'CalendarController@showEvent')->name('calendar.showEvent');
+
+
+//student
+Route::get('/student-evaluation', function () {
+    return view('mag-aaral.student-evaluation');
+})->name('student-evaluation');
+
+Route::get('/evaluation', function () {
+    return view('mag-aaral.evaluation');
+})->name('evaluation');
+
+Route::get('/consultation', function () {
+    return view('mag-aaral.consultation');
+})->name('consultation');
