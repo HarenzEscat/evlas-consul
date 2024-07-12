@@ -82,8 +82,7 @@
                     
                   
                     <li><a href="#">Faculty/Office</a></li>
-                    <li><a href="#">Calendar</a></li>
-                    <li><a href="#">Message</a></li>
+                    <li><a href="/calendar">Calendar</a></li>
                     <li><a href="#">Settings</a></li>
                     @if(auth()->check())
                     <li><a href="{{ route('logout') }}">Log Out</a></li>

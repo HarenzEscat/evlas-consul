@@ -58,7 +58,7 @@
     <div class="top-bar">
         <header class="header">
             <div class="container">
-                <h1>Student Evaluation and Consultation</h1>
+                <h1>Student Consultation</h1>
                 <nav>
                     <ul>
                         <li><a href="#">Dashboard</a></li>
