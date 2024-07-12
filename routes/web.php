@@ -79,8 +79,6 @@ Route::get('/calendar', [EventController::class, 'index']);
 Route::post('/events', [EventController::class, 'store']);
 
 Route::get('/calendar/event/{id}', 'CalendarController@showEvent')->name('calendar.showEvent');
-
-<<<<<<< HEAD
 Route::get('students/create', [StudentController::class, 'create'])->name('students.create');
 Route::post('students', [StudentController::class, 'store'])->name('students.store');
 
@@ -89,7 +87,7 @@ Route::get('/students', [StudentController::class, 'index'])->name('students.ind
 Route::get('/students/{student}/edit', [StudentController::class, 'edit'])->name('students.edit');
 Route::delete('students/{student}/destroy', [StudentController::class, 'destroy'])->name('students.destroy');
 Route::resource('students', StudentController::class);
-=======
+
 
 //student
 Route::get('/student-evaluation', function () {
@@ -103,4 +101,4 @@ Route::get('/evaluation', function () {
 Route::get('/consultation', function () {
     return view('mag-aaral.consultation');
 })->name('consultation');
->>>>>>> 555b144ca367b7bb8fe2f5d518ea8259113de68e
+

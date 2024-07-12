@@ -62,7 +62,8 @@
                 <nav>
                     <ul>
                         <li><a href="#">Dashboard</a></li>
-                        <li><a href="#">Student List</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('students.index') }}">Student List</a></li>
+
                         <li><a href="consultant.form">Appointment</a></li> <!-- Check if this link is correct -->
                         <li><a href="/approve-disapprove">Approve - Disapprove</a></li>
                         <li><a href="/calendar">Calendar</a></li>
