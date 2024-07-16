@@ -13,6 +13,7 @@ use App\Http\Controllers\OrderDetailController;
 use App\Models\Category;
 use App\Models\Student;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\DocumentationController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\TeacherController;
@@ -61,12 +62,12 @@ Route::get('/', function () {
     return view('consultant.layouts.consultation');
 });
 
+Route::get('/students/consultation', [StudentController::class, 'consultation'])->name('students.consultation');
+
+
 Route::get('/consultant.form', [ConsultationController::class, 'showForm'])->name('consultant.form');
 Route::post('/consultant.form', [ConsultationController::class, 'store'])->name('consultant.form.store');
-
 Route::get('/consultation', [ConsultationController::class, 'index'])->name('consultation');
-
-
 Route::get('/consultation', [ConsultationController::class, 'index']);
 Route::post('/consultation', [ConsultationController::class, 'store']);
 
@@ -88,6 +89,8 @@ Route::get('/students/{student}/edit', [StudentController::class, 'edit'])->name
 Route::delete('students/{student}/destroy', [StudentController::class, 'destroy'])->name('students.destroy');
 Route::resource('students', StudentController::class);
 
+Route::get('/documentation', [DocumentationController::class, 'index'])->name('consultant.documentation.index');
+Route::post('/documentation/upload', [DocumentationController::class, 'upload'])->name('consultant.documentation.upload');
 
 //student
 Route::get('/student-evaluation', function () {
