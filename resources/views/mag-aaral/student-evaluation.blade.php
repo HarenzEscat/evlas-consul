@@ -119,6 +119,7 @@
                     <a href="#" class="send-message">Send Message</a>
                 </div>
             </div>
+
             <div class="main">
                 <div class="details">
                     <div class="detail-item">Gender<br><strong>Male</strong></div>

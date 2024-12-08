@@ -1,7 +1,6 @@
 @extends('layout.app')
 
 @section('content')
-
 <div class="container mt-5">
     <h2>Create Student</h2>
     <form action="{{ route('students.store') }}" method="POST">
